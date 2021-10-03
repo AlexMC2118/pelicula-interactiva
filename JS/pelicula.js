@@ -6,6 +6,7 @@ class SeleccionPersonaje{
   }
 
   seleccionarPersonaje(){
+    //Se introducen los botones
     document.getElementsByTagName('footer')[0].innerHTML =
       `<p class="narrador_hablar"> Elige tu personaje</p>` +
       `<input type="button" value="Alejandro" id="0" />` +
@@ -14,7 +15,10 @@ class SeleccionPersonaje{
       `<input type="button" value="Luis"  id="3" />` +
       `<input type="button" value="Julia"  id="4" />`;
 
+      //Sirve para decidir que personaje jugar
+ //____________________________________________________________________________
     document.getElementById("0").addEventListener("click", function randomMalo(){
+        //event listener no actua dentro de la clase, por ello creamos un objeto para abrir la funcion
         let object = new SeleccionPersonaje();
         object.randomMalo(0);
       });
@@ -41,7 +45,7 @@ class SeleccionPersonaje{
         this.julia = new PersonajeIndefinido('Julia');
         this.luis = new  PersonajeIndefinido('Luis');
         this.miguel = new  PersonajeIndefinido('Miguel');
-        
+
         let personajes = [this.alejandro, this.esperanza, this.miguel, this.luis, this.julia];
         let random;
         do{
@@ -51,6 +55,7 @@ class SeleccionPersonaje{
         console.log(personajes[random]);
         document.getElementsByTagName('footer')[0].innerHTML = ''; //reset del footer
     }
+    //____________________________________________________________________________
 }
 
 class Pelicula{
