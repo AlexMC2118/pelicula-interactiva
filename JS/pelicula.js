@@ -2,12 +2,6 @@
 
 class SeleccionPersonaje{
   constructor(){
-    this.alejandro = new PersonajeIndefinido('Alejandro');
-    this.esperanza = new PersonajeIndefinido('Esperanza');
-    this.julia = new PersonajeIndefinido('Julia');
-    this.luis = new  PersonajeIndefinido('Luis');
-    this.miguel = new  PersonajeIndefinido('Miguel');
-
     this.seleccionarPersonaje();
   }
 
@@ -42,6 +36,12 @@ class SeleccionPersonaje{
       });
     }
     randomMalo(jugador){
+        this.alejandro = new PersonajeIndefinido('Alejandro');
+        this.esperanza = new PersonajeIndefinido('Esperanza');
+        this.julia = new PersonajeIndefinido('Julia');
+        this.luis = new  PersonajeIndefinido('Luis');
+        this.miguel = new  PersonajeIndefinido('Miguel');
+        
         let personajes = [this.alejandro, this.esperanza, this.miguel, this.luis, this.julia];
         let random;
         do{
@@ -49,6 +49,7 @@ class SeleccionPersonaje{
         }while(random == jugador);
         personajes[random] = new PersonajeMalo(personajes[random].nombre);
         console.log(personajes[random]);
+        document.getElementsByTagName('footer')[0].innerHTML = ''; //reset del footer
     }
 }
 
@@ -56,7 +57,8 @@ class Pelicula{
   constructor(){
     this.titulo = "TITULO";
     this.narrador = new Narrador();
-    let object = new SeleccionPersonaje();
+    new SeleccionPersonaje();
+
     this.iniciar();
   }
 
