@@ -2,6 +2,24 @@
   margin: 0;
   padding: 0;
 }
+
+@font-face {  /*Declaracion de la fuente*/
+  font-family: 'Terror Pro Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Terror Pro Regular'), url('terror_pro.woff') format('woff');
+}
+
+h1{
+  font-family:'Terror Pro Regular';
+  font-size: 48px;
+  background: #000000;
+  background: -moz-linear-gradient(to top, #000000 0%, #CF1512 100%);
+  background: linear-gradient(to top, #000000 0%, #CF1512 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 body{
   background-image: url('IMG/fondo.jpg');
   background-size: 100%;

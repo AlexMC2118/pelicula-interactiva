@@ -1,5 +1,20 @@
 'use strict';
 
+class Pelicula{
+  constructor(){
+    this.titulo = "Cementerio de almas";
+    this.narrador = new Narrador();
+    new SeleccionPersonaje();
+
+    this.iniciar();
+  }
+
+  iniciar(){
+    document.getElementsByTagName('main')[0].innerHTML +=
+      `<h1>${this.titulo}</h1>`;
+  }
+}
+
 class SeleccionPersonaje{
   constructor(){
     this.seleccionarPersonaje();
@@ -56,21 +71,6 @@ class SeleccionPersonaje{
         document.getElementsByTagName('footer')[0].innerHTML = ''; //reset del footer
     }
     //____________________________________________________________________________
-}
-
-class Pelicula{
-  constructor(){
-    this.titulo = "TITULO";
-    this.narrador = new Narrador();
-    new SeleccionPersonaje();
-
-    this.iniciar();
-  }
-
-  iniciar(){
-    document.getElementsByTagName('main')[0].innerHTML +=
-      `<h1>${this.titulo}</h1>`;
-  }
 }
 
 class Personaje{
