@@ -18,6 +18,7 @@ h1{
   background: linear-gradient(to top, #000000 0%, #CF1512 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  margin-bottom: 30px;
 }
 
 body{
@@ -30,10 +31,11 @@ main{
 	width: 80%;
 	text-align: justify;
 	padding: 1rem;
-	float: left;
+	overflow: hidden;
 	box-sizing: border-box;
 	margin: 0 10%;
   background-color: rgba(202, 233, 255, 0.5);
+  font-size: 18px;
 }
 
 footer {
@@ -73,11 +75,18 @@ input[type='button']:hover{
 }
 
 .personaje_hablar_elegido {
-  color: lightgreen;
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  color: #0CFF00;
 }
 .personaje_hablar_malo {
-  color: red;
+  font-family: Andale Mono, monospace;
+  color: #FFB900;
 }
 .personaje_hablar_indefinido {
-  color: lightgray;
+  font-family: Andale Mono, monospace;
+  color: #FFB900;
+}
+.narrador_hablar {
+  font-family: monospace;
+  margin: 5px;
 }

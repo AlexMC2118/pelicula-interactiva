@@ -9,10 +9,25 @@ class Pelicula{
     document.getElementsByTagName('main')[0].innerHTML +=
       `<h1>${this.titulo}</h1>`;
     //personajes = [alejandro, esperanza, miguel, luis, julia];
-    personajes[jugador].hablar('Hola soy el bueno');
-    personajes[malo].hablar('Hola soy el malo');
-    personajes[0].hablar('Hola soy alguien');
+    //El sigiente codigo mete en un array distinto a los personajes indefinidos
+    //____________________________________________________________________________
+    let personajesInd = [0];
+    let j = 0;
+    for(let i=0;i<5;i++){
+      if(personajes[malo].nombre!=personajes[i].nombre && personajes[jugador].nombre!=personajes[i].nombre){
+        personajesInd[j]=personajes[i];
+        j++;
+      }
+    }
+    //____________________________________________________________________________
 
+    //personajes[jugador].hablar('Hola soy el bueno');
+    //personajes[malo].hablar('Hola soy el malo'); //El malo tendra el mismo color que el indefinido hasta pillarlo
+    //personajesInd[0].hablar('Hola soy ' + personajesInd[0].nombre);
+    //personajesInd[1].hablar('Hola soy ' + personajesInd[1].nombre);
+    //personajesInd[2].hablar('Hola soy ' + personajesInd[2].nombre);
+
+    
   }
 }
 
