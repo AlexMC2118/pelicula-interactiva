@@ -13,16 +13,12 @@ class Pelicula{
 
     let obj = new SeleccionPersonaje();
     obj.seleccionarPersonaje(this.alejandro, this.esperanza, this.miguel, this.luis, this.julia);
-    
-    document.getElementById("0").addEventListener("click", function prueba(){
-      iniciar();
-    });
   }
 
   iniciar(){
     document.getElementsByTagName('main')[0].innerHTML +=
       `<h1>${this.titulo}</h1>`;
-      this.alejandro.hablar('Hola');
+    this.Personaje.hablar('Hola');
   }
 }
 
@@ -140,4 +136,20 @@ class Pala extends Arma{   //Arma de personaje bueno
   }
 }
 
-new Pelicula();
+let obj = new Pelicula();
+
+document.getElementById("0").addEventListener("click", function prueba(){
+  obj.iniciar();
+});
+document.getElementById("1").addEventListener("click", function prueba(){
+  obj.iniciar();
+});
+document.getElementById("2").addEventListener("click", function prueba(){
+  obj.iniciar();
+});
+document.getElementById("3").addEventListener("click", function prueba(){
+  obj.iniciar();
+});
+document.getElementById("4").addEventListener("click", function prueba(){
+  obj.iniciar();
+});
