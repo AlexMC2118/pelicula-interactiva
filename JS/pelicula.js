@@ -75,6 +75,13 @@ class Pelicula{
         narrador.hablar('Volvieron con la maleza al refugio, poco a poco escuchaban más y más ruidos de la cabaña.');
         narrador.hablar('Soltaron la madera y entraron rapidamente, no podrian creer lo que encontraron.');
         narrador.hablar('¡¡' + personajesInd[0].nombre + ' y ' + personajesInd[1].nombre + ' estaban acabando con todo el suministro de patatas!!');
+        narrador.hablar(personajes[malo].nombre + ' les contó a los demás lo que se encontraron en el bosque.');
+        narrador.hablar('Todos se asombraron.');
+        personajesInd[1].hablar(personajes[jugador].nombre + ' llevame al cementerio ese.');
+        personajes[jugador].hablar('Yo ahi no vuelvo');
+        personajes[malo].hablar('Yo te llevo que '+ personajes[jugador].nombre +' tiene miedo');
+        personajesInd[0].hablar('Os acompaño');
+        personajes[jugador].hablar('¿Todavia no han vuelto los monitores?');
     }
   }
 }
