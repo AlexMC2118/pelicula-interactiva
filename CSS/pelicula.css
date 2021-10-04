@@ -34,7 +34,7 @@ main{
 	overflow: hidden;
 	box-sizing: border-box;
 	margin: 0 10%;
-  background-color: rgba(202, 233, 255, 0.5);
+  background-color: rgba(46, 46, 46, 0.5);
   font-size: 18px;
 }
 
@@ -42,7 +42,7 @@ footer {
   width: 100%;
   position: fixed;
   bottom: 0;
-  background-color: rgba(202, 233, 255, 0.5);
+  background-color: rgba(46, 46, 46, 0.5);
   text-align: center;
   font-family: Bookman, URW Bookman L, serif;
 }
@@ -53,7 +53,7 @@ footer > p {
   font-size: 20px;
 }
 
-input[type='button'] {
+input[type='button'], button {
   font-size:15px;
   padding: 10px 15px;
   margin: 20px;
@@ -70,7 +70,7 @@ input[type='button'] {
   background:linear-gradient(#ededed, #dfdfdf);
 }
 
-input[type='button']:hover{
+input[type='button']:hover, button:hover{
   background: linear-gradient(#dfdfdf, #ededed);
 }
 
@@ -88,5 +88,7 @@ input[type='button']:hover{
 }
 .narrador_hablar {
   font-family: monospace;
+  font-size:15px;
   margin: 5px;
+  color: white;
 }

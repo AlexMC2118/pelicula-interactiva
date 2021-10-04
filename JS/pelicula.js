@@ -3,9 +3,8 @@
 class Pelicula{
   constructor(){
     this.titulo = "Cementerio de almas";
-    this.narrador = new Narrador();
   }
-  iniciar(personajes, malo, jugador){
+  iniciar(personajes, malo, jugador, narrador){
     document.getElementsByTagName('main')[0].innerHTML +=
       `<h1>${this.titulo}</h1>`;
     //personajes = [alejandro, esperanza, miguel, luis, julia];
@@ -27,7 +26,56 @@ class Pelicula{
     //personajesInd[1].hablar('Hola soy ' + personajesInd[1].nombre);
     //personajesInd[2].hablar('Hola soy ' + personajesInd[2].nombre);
 
-    
+    narrador.hablar('En una fria tarde de verano, en la cual el cielo comenzaba a tornarse oscuro, se avistaba en la penumbra una leve sombra de lo que parecia ser un grupo de chicos.');
+    narrador.hablar('Lentamente se acercaban a lo que parecia ser una cabaña; detras de estos se encontraban otras dos personas que parecian tener una mayor edad.');
+    narrador.hablar('Minetras se acercaban comenzó una pequeña conversación');
+    personajes[jugador].hablar('¡¡¡Monitoor!!! ¿cuándo llegamos? estoy cansado');
+    personajesInd[0].hablar('Eso eso, llevamos horas caminando');
+    personajes[malo].hablar('Sois unos quejicas, si solo han sido 12 kilometros');
+    personajes[jugador].hablar('¡¿¡Solo 12 kilometros!?! ni que estuvieramos en el Camino de Santiago');
+    narrador.hablar('Todos comenzaron a reirse');
+    narrador.hablar(personajes[jugador].nombre + ' se percató de un movimiento entre la maleza.');
+    personajes[jugador].hablar('¡¿¡Qué c**o ha sido eso!?!');
+    personajes[malo].hablar('¡Que cagao!, será un cerbatillo, estamos en el bosque, ¿que va a haber?');
+    personajesInd[1].hablar(personajes[malo].nombre + ' tiene razon, ni que fuera a haber un asesino AJAJAJ');
+    narrador.hablar(personajesInd[2].nombre + ' dijo entre dientes.');
+    personajesInd[2].hablar('Claro...');
+    narrador.hablar('Siguieron caminando hasta llegar a la cabaña.');
+    narrador.hablar('Al llegar a dicha cabaña los monitores se fuerón a realizar algunos preparativos.');
+    personajes[malo].hablar('¿Puedo ir con vosotros?');
+    narrador.hablar('Ante la pregunta de ' + personajes[malo].nombre + ' los monitores respondieron con una negativa, ellos tendrian que organizarse para encender el fuego.');
+    narrador.hablar('Ante esto se pusieron manos a la obra.');
+    personajes[jugador].hablar('Venga ' + personajes[malo].nombre + ' vamos a por leña alli atras.');
+    narrador.hablar(personajes[malo].nombre + ' y ' + personajes[jugador].nombre + ' fueron a por leña a un pequeño claro que se avistaba a lo lejos.');
+    narrador.hablar('Poco a poco se fueron acercando y creian ver lo que era un cementerio.');
+    personajes[jugador].hablar('¿Eso es un cementerio?');
+    personajes[malo].hablar('Parece que si, vamos a echar un vistazo');
+    personajes[jugador].hablar('Yo ahi no entro ni loco');
+    personajes[malo].hablar('Venga que no va a pasar nada');
+    narrador.hablar(personajes[jugador].nombre + ' acepto finalmente entrar al cementerio.');
+    narrador.hablar('Se pararon en diversas tumbas, pero una parecia sopesar en el ambiente.');
+    personajes[jugador].hablar('¿Su- Su- -sa Susana Foster?');
+    personajes[malo].hablar('Me suena de algo su apellido');
+    personajes[jugador].hablar('A mi tambien, pero no se de que la verdad.');
+
+    //Resetear la pagina (cls)
+    //____________________________________________________________________________
+    document.getElementsByTagName('main')[0].innerHTML +=
+      `<button id="continuar">Continuar...</button>`;
+    document.getElementById("continuar").addEventListener("click", function continew(){
+      document.getElementsByTagName('main')[0].innerHTML =
+        `<h1>${this.titulo}</h1>`;
+        seguir();
+    });
+    //____________________________________________________________________________
+    function seguir (){
+        narrador.hablar('Ese apellido merodeaba en un lejano recuerdo del cual parecia que no se acordaban.');
+        personajes[jugador].hablar('Bueno venga vamonos de aqui, que me da mal rollo');
+        personajes[malo].hablar('Bueno venga, no vaya a ser que se te trague la tierra JAJAJ');
+        narrador.hablar('Volvieron con la maleza al refugio, poco a poco escuchaban más y más ruidos de la cabaña.');
+        narrador.hablar('Soltaron la madera y entraron rapidamente, no podrian creer lo que encontraron.');
+        narrador.hablar('¡¡' + personajesInd[0].nombre + ' y ' + personajesInd[1].nombre + ' estaban acabando con todo el suministro de patatas!!');
+    }
   }
 }
 
@@ -75,6 +123,7 @@ class SeleccionPersonaje{
         this.julia = new Personaje('Julia');
         this.luis = new  Personaje('Luis');
         this.miguel = new  Personaje('Miguel');
+        this.narrador = new Narrador();
 
         let personajes = [this.alejandro, this.esperanza, this.miguel, this.luis, this.julia];
         let random;
@@ -95,7 +144,7 @@ class SeleccionPersonaje{
         console.log(personajes[jugador]);
 
         let obj = new Pelicula();
-        obj.iniciar(personajes, random, jugador);
+        obj.iniciar(personajes, random, jugador, this.narrador);
 
         document.getElementsByTagName('footer')[0].innerHTML = ''; //reset del footer
     }
@@ -105,7 +154,6 @@ class SeleccionPersonaje{
 class Personaje{
   constructor(nombre){
     this.nombre = nombre;
-    this.vida = 100;
   }
   hablar(mensaje){
     document.getElementsByTagName('main')[0].innerHTML +=
@@ -138,23 +186,6 @@ class Narrador{
   hablar(mensaje){
     document.getElementsByTagName('main')[0].innerHTML +=
       `<p class="narrador_hablar">- ${mensaje} -</p>`;
-  }
-}
-
-class Arma{
-  constructor(){
-  }
-}
-
-class Cuchillo extends Arma{   //Arma del enemigo
-  constructor(){
-    super();
-  }
-}
-
-class Pala extends Arma{   //Arma de personaje bueno
-  constructor(){
-    super();
   }
 }
 
