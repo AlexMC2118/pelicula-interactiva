@@ -71,3 +71,13 @@ input[type='button'] {
 input[type='button']:hover{
   background: linear-gradient(#dfdfdf, #ededed);
 }
+
+.personaje_hablar_elegido {
+  color: lightgreen;
+}
+.personaje_hablar_malo {
+  color: red;
+}
+.personaje_hablar_indefinido {
+  color: lightgray;
+}

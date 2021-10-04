@@ -4,26 +4,23 @@ class Pelicula{
   constructor(){
     this.titulo = "Cementerio de almas";
     this.narrador = new Narrador();
-
-    this.alejandro = new Personaje('Alejandro');
-    this.esperanza = new Personaje('Esperanza');
-    this.julia = new Personaje('Julia');
-    this.luis = new  Personaje('Luis');
-    this.miguel = new  Personaje('Miguel');
-
-    let obj = new SeleccionPersonaje();
-    obj.seleccionarPersonaje(this.alejandro, this.esperanza, this.miguel, this.luis, this.julia);
   }
-
-  iniciar(){
+  iniciar(personajes, malo, jugador){
     document.getElementsByTagName('main')[0].innerHTML +=
       `<h1>${this.titulo}</h1>`;
-    this.Personaje.hablar('Hola');
+    //personajes = [alejandro, esperanza, miguel, luis, julia];
+    personajes[jugador].hablar('Hola soy el bueno');
+    personajes[malo].hablar('Hola soy el malo');
+    personajes[0].hablar('Hola soy alguien');
+
   }
 }
 
 class SeleccionPersonaje{
-  seleccionarPersonaje(alejandro, esperanza, miguel, luis, julia){
+  constructor(){
+    this.seleccionarPersonaje();
+  }
+  seleccionarPersonaje(){
     //Se introducen los botones
     document.getElementsByTagName('footer')[0].innerHTML =
       `<p class="narrador_hablar"> Elige tu personaje</p>` +
@@ -38,27 +35,33 @@ class SeleccionPersonaje{
     document.getElementById("0").addEventListener("click", function randomMalo(){
         //event listener no actua dentro de la clase, por ello creamos un objeto para abrir la funcion
         let object = new SeleccionPersonaje();
-        object.randomMalo(0, alejandro, esperanza, miguel, luis, julia);
+        object.randomMalo(0);
       });
     document.getElementById("1").addEventListener("click", function randomMalo(){
         let object = new SeleccionPersonaje();
-        object.randomMalo(1, alejandro, esperanza, miguel, luis, julia);
+        object.randomMalo(1);
       });
     document.getElementById("2").addEventListener("click", function randomMalo(){
         let object = new SeleccionPersonaje();
-        object.randomMalo(2, alejandro, esperanza, miguel, luis, julia);
+        object.randomMalo(2);
       });
     document.getElementById("3").addEventListener("click", function randomMalo(){
         let object = new SeleccionPersonaje();
-        object.randomMalo(3, alejandro, esperanza, miguel, luis, julia);
+        object.randomMalo(3);
       });
     document.getElementById("4").addEventListener("click", function randomMalo(){
         let object = new SeleccionPersonaje();
-        object.randomMalo(4, alejandro, esperanza, miguel, luis, julia);
+        object.randomMalo(4);
       });
     }
-    randomMalo(jugador, alejandro, esperanza, miguel, luis, julia){
-        let personajes = [alejandro, esperanza, miguel, luis, julia];
+    randomMalo(jugador){
+        this.alejandro = new Personaje('Alejandro');
+        this.esperanza = new Personaje('Esperanza');
+        this.julia = new Personaje('Julia');
+        this.luis = new  Personaje('Luis');
+        this.miguel = new  Personaje('Miguel');
+
+        let personajes = [this.alejandro, this.esperanza, this.miguel, this.luis, this.julia];
         let random;
         do{
           random = Math.floor((Math.random() * 5));
@@ -75,6 +78,10 @@ class SeleccionPersonaje{
         }
         console.log(personajes[random]);
         console.log(personajes[jugador]);
+
+        let obj = new Pelicula();
+        obj.iniciar(personajes, random, jugador);
+
         document.getElementsByTagName('footer')[0].innerHTML = ''; //reset del footer
     }
     //____________________________________________________________________________
@@ -94,21 +101,21 @@ class Personaje{
 class PersonajeIndefinido extends Personaje{
   hablar(mensaje){
     document.getElementsByTagName('main')[0].innerHTML +=
-      `<p class="personaje_hablar personaje_hablar_indefinido">${this.nombre}: ${mensaje}</p>`;
+      `<p class="personaje_hablar_indefinido">${this.nombre}: ${mensaje}</p>`;
   }
 }
 
 class PersonajeElegido extends Personaje{
   hablar(mensaje){
     document.getElementsByTagName('main')[0].innerHTML +=
-      `<p class="personaje_hablar personaje_hablar_bueno">${this.nombre}: ${mensaje}</p>`;
+      `<p class="personaje_hablar_elegido">${this.nombre}: ${mensaje}</p>`;
   }
 }
 
 class PersonajeMalo extends Personaje{
   hablar(mensaje){
     document.getElementsByTagName('main')[0].innerHTML +=
-      `<p class="personaje_hablar personaje_hablar_malo">${this.nombre}: ${mensaje}</p>`;
+      `<p class="personaje_hablar_malo">${this.nombre}: ${mensaje}</p>`;
   }
 }
 
@@ -136,20 +143,4 @@ class Pala extends Arma{   //Arma de personaje bueno
   }
 }
 
-let obj = new Pelicula();
-
-document.getElementById("0").addEventListener("click", function prueba(){
-  obj.iniciar();
-});
-document.getElementById("1").addEventListener("click", function prueba(){
-  obj.iniciar();
-});
-document.getElementById("2").addEventListener("click", function prueba(){
-  obj.iniciar();
-});
-document.getElementById("3").addEventListener("click", function prueba(){
-  obj.iniciar();
-});
-document.getElementById("4").addEventListener("click", function prueba(){
-  obj.iniciar();
-});
+new SeleccionPersonaje();
