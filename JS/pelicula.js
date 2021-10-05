@@ -123,7 +123,7 @@ export class Pelicula{
 
           //Se introducen los botones
           document.getElementsByTagName('footer')[0].innerHTML =
-            `<p class="narrador_hablar"> Elige tu personaje</p>` +
+            `<p class="narrador_hablar"> Decide</p>` +
             '<input type="button" value="Defender a '+personajes[malo].nombre+'" id="5" />' +
             '<input type="button" value="Culpar a '+personajes[malo].nombre+'" id="6" />';
 
@@ -148,7 +148,7 @@ export class Pelicula{
             personajesInd[0].hablar('Yo no ví nada...');
             //Se introducen los botones
             document.getElementsByTagName('footer')[0].innerHTML =
-              `<p class="narrador_hablar"> Elige tu personaje</p>` +
+              `<p class="narrador_hablar">Decide</p>` +
               '<input type="button" value="Culpar a '+personajes[malo].nombre+'" id="7" />' +
               '<input type="button" value="Culpar a '+personajesInd[0].nombre+'" id="8" />'+
               '<input type="button" value="Culpar a '+personajesInd[1].nombre+'" id="9" />'+
